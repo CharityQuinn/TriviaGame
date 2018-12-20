@@ -1,0 +1,18 @@
+.container {
+ border: 5px;
+ border-color: black; 
+ background-image: radial-gradient(background-image);
+}
+h3 {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-style: italic;
+}
+
+h1, h3, .heading {
+  text-align: center;
+}
+
+.cirbtn {
+  align-items: center;
+  float: center;
+} 
