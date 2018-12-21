@@ -1,18 +1,34 @@
 .container {
- border: 5px;
+ border: 10px;
  border-color: black; 
  background-color: aqua;
+ border: darkmagenta;
+ 
 }
-h3 {
+
+#start {
+  text-align: center;
+  text-decoration-color: blue;
+}
+
+h5 {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-style: italic;
 }
 
-h1, h3, .heading {
+h1, h5, .heading {
   text-align: center;
 }
 
 .cirbtn {
   align-items: center;
   float: center;
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
 } 
+#done {
+  align-content: center;
+  
+}

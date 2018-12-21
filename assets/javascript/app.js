@@ -40,7 +40,7 @@ function stop() {
 run();
 
 
- Function to get selected value and check it
+ //Function to get selected value and check it
  //$('.cirbtn').click(function () {
    //console.log(.cirbtn);
    for (i = 0; i < 11; i++) {
@@ -63,6 +63,10 @@ run();
 console.log("This is the number correct: " + correct);
 console.log("This is the value of incorrect " + incorrect);
 console.log("This is the value of unAnswered " + unanswer);
+
+$("#correct").html("<h3>Questions Correct: " + correct ,"</h3>;");
+$("#incorrect").html("<h3>Questions Incorrect: " + incorrect ,"</h3>");
+$("#show-number").html("<h3>Questions Unanswered: " + unanswer ,"</h3>");
 
   $(document).on("click", "#done", function() {
     stop ();
