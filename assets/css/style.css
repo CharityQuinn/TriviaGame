@@ -6,29 +6,52 @@
  
 }
 
+.begin {
+  text-align: center;
+}
+
 #start {
   text-align: center;
-  text-decoration-color: blue;
+  color: blue;
+  margin: 20px;
+  width: 80px;
+  float: center;
 }
 
 h5 {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-style: italic;
+  font-weight: 800;
 }
 
-h1, h5, .heading {
+h1, h2, h5, .heading {
   text-align: center;
 }
 
 .cirbtn {
-  align-items: center;
-  float: center;
-  padding-top: 10px;
-  padding-right: 20px;
-  padding-bottom: 10px;
-  padding-left: 20px;
-} 
-#done {
+  text-align: center;
   align-content: center;
+  margin: 0 auto;
+  float: center;
+  padding-right: 20px;
+   padding-left: 20px;
+} 
+#dbtn {
+  text-align: center;
+  text: blue;
+  margin: 20px;
+  width: 80px;
+  font-style: oblique;
   
+}
+
+#results {
+  margin-bottom: 30px;
+  background: yellow;
+  float: center;
+  padding: 40px;
+}
+
+#correct, #incorrect {
+  text-align: center;
 }

@@ -1,17 +1,25 @@
 var cntDown;
 var start;
-var value;
+var user;
 var number = 40;
 var intervalId;
 var correct = 0;
 var incorrect = 0;
 var unanswer = 0;
-var rightAnswer = ["Strongest Greek fighter", "Achille's firend", "King of Mycenae", "God of Travelers", "God of youth", "God of fire", "Queen of Sparta", "King of Troy", "King of Troy", "Goddess of War"];
+var tf = false;
+var rightAnswer = ["Strongest Greek fighter", "Achille's friend", "King of Mycenae", "God of Travelers", "God of youth", "God of Fire", "Queen of Sparta", "Queen of Sparta", "King of Troy", "Goddess of War"];
 
+$(document).ready(function(){
+  $("#game").hide();
+  $("#end").hide ();
+  });
 
 // start the clock when the Start button is clicked
-$(document).on("click", "#start", function() {
+$(document).on("click", "#start", function () {
+   $("#game").show();
+   $("#begin").hide();
   number = 40;
+  run();
 });
 //function to run the clock
 function run() {
@@ -22,65 +30,70 @@ function run() {
 function decrement() {
   number--;
   $("#show-number").html("<h3>Time Remaining " + number + " seconds</h3>");
-  
-  if (number === 0 ) {
+
+  if (number === 0) {
     stop();
     alert("Time Up!");
   }
 }
-
-//  The stop function
-function stop() {
-
-  //  Clears our intervalId
-  clearInterval(intervalId);
-}
-
-//  Execute the run function.
-run();
+$(document).on("click", "#dbtn", function () {
+  console.log("We just hit done, stopping clock, calling check");
+  stop();
+  check();
+  $("#game").hide();
+  $("#end").show();
 
 
- //Function to get selected value and check it
- //$('.cirbtn').click(function () {
-   //console.log(.cirbtn);
-   for (i = 0; i < 11; i++) {
-     value = $("input[name='q[i]']:checked").val();
-     console.log(value);
-     if (value === rightAnswer[i]) {
-       correct++;
-       console.log(value);
-       console.log(rightAnswer[i])
-     }
-          
-     else if (value = "undefined") {
-      unanswer++;
-      } 
-     else {
-     incorrect++;
+})
+
+     
+  
+//Function to get selected user and check it
+function check() {
+    var questionZero = $(`input[name="q0"]:checked`).val();
+    var questionOne = $(`input[name="q1"]:checked`).val();
+    var questionTwo = $(`input[name="q2"]:checked`).val();
+    var questionThree = $(`input[name="q3"]:checked`).val();
+    var questionFour = $(`input[name="q4"]:checked`).val();
+    var questionFive = $(`input[name="q5"]:checked`).val();
+    var questionSix = $(`input[name="q6"]:checked`).val();
+    var questionSeven = $(`input[name="q7"]:checked`).val();
+    var questionEight = $(`input[name="q8"]:checked`).val();
+    var questionNine = $(`input[name="q9"]:checked`).val();
+
+    var ansArray = [questionZero, questionOne, questionTwo, questionThree, questionFour, questionFive, questionSix, questionSeven, questionEight, questionNine];
+    for (i = 0; i < 10; i++) {
+    console.log(i);
+    console.log("This is the array of user Answer " + ansArray[i]);
+    console.log("This is the right answer " +rightAnswer[i]);
+   
+    if (rightAnswer[i] === ansArray[i]) {
+      correct++;
+      console.log("THIS answer is correct " + ansArray[i])
+      console.log("This is the number of correct "+ correct);
     }
+      else {
+      incorrect++;
+      console.log("This answer is wrong " + ansArray[i]);
+      console.log("This is the number of incorrect " + incorrect);
+
+    }
+    console.log("This is the number correct: " + correct);
+    console.log("This is the user of incorrect " + incorrect);
+    $("#correct").html("Questions Correct: " + correct);
+    $("#incorrect").html("Questions Incorrect: " + incorrect);
+    
   }
-
-console.log("This is the number correct: " + correct);
-console.log("This is the value of incorrect " + incorrect);
-console.log("This is the value of unAnswered " + unanswer);
-
-$("#correct").html("<h3>Questions Correct: " + correct ,"</h3>;");
-$("#incorrect").html("<h3>Questions Incorrect: " + incorrect ,"</h3>");
-$("#show-number").html("<h3>Questions Unanswered: " + unanswer ,"</h3>");
-
-  $(document).on("click", "#done", function() {
-    stop ();
-    incorrect = 0;
-    correct = 0;
-    unanswer = 0;
-
-  });
+}
+ 
+  
+  
+  
   
 
+  //  The stop function
+  function stop() {
 
-
-
-
-//To display the selected value we used <p id="result"> tag in HTML file
-//$('.container').append(value); console.log(value);
-//})
+    //  Clears our intervalId
+    clearInterval(intervalId);
+  }
